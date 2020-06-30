@@ -1,0 +1,8 @@
+genrsa -out jwt.pem 2048
+
+rsa -in jwt.pem -pubout
+
+rsa -in jwt.pem
+
+
+

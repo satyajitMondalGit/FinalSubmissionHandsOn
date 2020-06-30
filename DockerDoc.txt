@@ -1,0 +1,83 @@
+http://localhost:8888/store/
+http://localhost:8082/swagger-ui.html
+
+docker-machine ls
+docker-machine start docker vm1
+docker-machine env docker-vm1
+
+docker 
+
+
+docker run -d -p 9411:9411 openzipkin/zipkin
+
+
+Delete a container (if it is not running):
+
+docker rm [CONTAINER]
+
+docker rmi Image
+
+docker image rm -f IMAGE [IMAGE...]
+
+Pull an image from a registry:
+
+docker pull [IMAGE]
+
+docker pull openzipkin/zipkin
+
+docker stop 699747c7d9ae
+docker rmi -f  699747c7d9ae
+
+
+List running containers:
+
+docker ps
+docker ps -a  (lists both running containers and ones that have stopped)
+
+
+List the logs from a running container:
+docker logs [CONTAINER]
+
+
+docker image ls
+
+to run a spring project in docker 
+first we need to go to the project folder from cmd
+
+then build the project 
+docker build -t nameOfTheJar .
+
+then run on the port
+
+docker run -p exposedPort:projectport nameOfTheJar
+
+for pull docker images
+
+first need to log in by following cmd
+
+docker login
+
+then..  for push any docker image
+first need to tag with your username
+
+docker tag bb38976d03cf(id) yourhubusername/ImageName
+
+
+docker build -t config-server.jar .    (. is mandatory)
+docker tag config-server1.jar satyajitmondaldocker/config-server1.jar
+docker run -p 9091:9091 satyajitmondaldocker/config-server.jar
+docker push satyajitmondaldocker/config-server1.jar
+docker pull satyajitmondaldocker/config-server.jar
+
+
+docker build -t conversion-factor1.jar .    (. is mandatory)
+docker tag conversion-factor1.jar satyajitmondaldocker/conversion-factor1.jar
+docker run -p 8081:8081 satyajitmondaldocker/conversion-factor.jar
+docker push satyajitmondaldocker/conversion-factor1.jar
+docker pull satyajitmondaldocker/conversion-factor.jar
+
+docker build -t convert-currency1.jar .    (. is mandatory)
+docker tag convert-currency.jar satyajitmondaldocker/convert-currency.jar
+docker run -p 8082:8082 satyajitmondaldocker/convert-currency.jar
+docker push satyajitmondaldocker/convert-currency.jar
+docker pull satyajitmondaldocker/convert-currency.jar

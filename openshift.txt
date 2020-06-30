@@ -1,0 +1,43 @@
+openshift tutorial
+
+go to openshift console uri from google ..
+
+create a free account
+
+first neet to go -- https://console-openshift-console.apps.us-east-1.starter.openshift-online.com/
+
+now create a project -- by any name using small case
+
+den create a deployment .. from docker image.. bellow is the yaml file
+
+yml for deployment
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: convert
+  namespace: currency
+spec:
+  selector:
+    matchLabels:
+      app: convert-openshift
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: convert-openshift
+    spec:
+      containers:
+        - name: convert-openshift
+          image: satyajitmondaldocker/convert-currency1.jar
+          ports:
+            - containerPort: 8082
+
+
+
+then create a service  from pod 
+
+use convert-openshift in place of myApp
+
+
+to expose to outside create a route
